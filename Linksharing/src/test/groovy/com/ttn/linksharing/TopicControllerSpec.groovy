@@ -65,6 +65,7 @@ class TopicControllerSpec extends Specification implements ControllerUnitTest<To
         when:
         controller.delete(topic.id)
         then:
+        Users.list().size() ==0
         true==true
 
     }

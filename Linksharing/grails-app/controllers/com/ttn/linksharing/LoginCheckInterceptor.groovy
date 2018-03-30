@@ -12,7 +12,7 @@ class LoginCheckInterceptor {
     boolean before() {
         if (!session.user) {
             flash.error= "NO ACTIVE SESSION"
-            redirect(action:"login/index")
+           // redirect(action:"login/index")
         }
 
         true

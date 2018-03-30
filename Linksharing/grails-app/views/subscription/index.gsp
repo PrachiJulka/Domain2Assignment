@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: prachi
   Date: 30/3/18
-  Time: 11:32 AM
+  Time: 2:16 PM
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -12,10 +12,6 @@
 </head>
 
 <body>
-
-${flash.message}
-
-${flash.error}
 
 </body>
 </html>

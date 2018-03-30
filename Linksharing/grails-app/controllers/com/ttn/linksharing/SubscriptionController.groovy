@@ -1,6 +1,7 @@
 package com.ttn.linksharing
 
-//Implement subscription save, update, delete
+//Create subscription delete action which takes id as parameter,
+// if it exist then delete and send success else render not found
 
 class SubscriptionController {
 
@@ -11,7 +12,16 @@ class SubscriptionController {
 
     }
 
-    def delete(){
+    def delete(Integer id){
+        println(id)
+        Subscription subscription=Subscription.load(id)
+        if(subscription!=null)
+        {
+            subscription.delete(flush:true)
+            render("success")
+        }
+        else
+            render("not found")
 
     }
 
