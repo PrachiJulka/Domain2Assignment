@@ -1,11 +1,14 @@
 package com.ttn.linksharing
-//Add topic save action in TopicController
+//Session user should be createdBy of the topic
 class TopicController {
 
     def index() { }
 
     def show(){
-        Topic topic=Topic.read()
+
+       User user=User.read(session.user.id)
+        //println user.topics
+        render(user.topics)
     }
 
     def delete(Integer id){
