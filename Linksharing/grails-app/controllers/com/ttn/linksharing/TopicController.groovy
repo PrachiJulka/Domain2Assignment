@@ -1,5 +1,5 @@
 package com.ttn.linksharing
-//Session user should be createdBy of the topic
+//If a topic is saved without error flash message should be set and success should be rendered
 class TopicController {
 
     def index() { }
