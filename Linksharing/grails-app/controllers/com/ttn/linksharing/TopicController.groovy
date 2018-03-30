@@ -1,5 +1,5 @@
 package com.ttn.linksharing
-//If a topic is saved without error flash message should be set and success should be rendered
+//If a topic is not saved errors should be logged flash error should be set and error text should be rendered
 class TopicController {
 
     def index() { }
@@ -20,7 +20,8 @@ class TopicController {
             render("saved Successfully")
         }
         else{
-            render("error")
+            flash.error="Error"
+            render(view:"index")
         }
 
 
