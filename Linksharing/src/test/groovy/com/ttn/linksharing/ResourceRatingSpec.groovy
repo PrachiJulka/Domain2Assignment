@@ -25,7 +25,7 @@ class ResourceRatingSpec extends Specification implements DomainUnitTest<Resourc
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         Resource resource=new LinkResource(url: "www.google.com",description: "abhabhab",user: user,topic: topic)
 
 
@@ -84,7 +84,7 @@ class ResourceRatingSpec extends Specification implements DomainUnitTest<Resourc
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         Resource resource=new LinkResource(url: "www.google.com",description: "abhabhab",user: user,topic: topic)
 
         when:
@@ -104,7 +104,7 @@ class ResourceRatingSpec extends Specification implements DomainUnitTest<Resourc
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
 
         when:
         ResourceRating resourceRating=new ResourceRating(score:2,user: user,resource:null)
@@ -119,7 +119,7 @@ class ResourceRatingSpec extends Specification implements DomainUnitTest<Resourc
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         Resource resource=new LinkResource(url:"www.yahoo.com",description: "abhabhab",user: user,topic: topic)
         when:
         ResourceRating resourceRating1=new ResourceRating(score:2,user: user,resource:resource)
@@ -147,7 +147,7 @@ class ResourceRatingSpec extends Specification implements DomainUnitTest<Resourc
        String email = "prachijulka@tothenew.com"
        String password = 'p1231'
        User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-       Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+       Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
        Resource resource=new LinkResource(url:"www.yahoo.com",description: "abhabhab",user: user,topic: topic)
 
        when:
@@ -164,7 +164,7 @@ class ResourceRatingSpec extends Specification implements DomainUnitTest<Resourc
 
         when:
         User user = new User(email: "prachijulka31@gmail.com",userName:"prachiJ",password:"123456h", firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         Resource resource1=new LinkResource(url:"www.yahoo.com",description: "awawawa",user: user,topic:topic)
         Resource resource=new LinkResource(url: "www.google.com",description: "abhabhab",user: user,topic: topic)
 

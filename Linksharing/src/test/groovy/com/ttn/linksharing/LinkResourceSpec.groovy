@@ -25,7 +25,7 @@ class LinkResourceSpec extends Specification implements DomainUnitTest<LinkResou
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
 
         when:
         LinkResource linkResource=new LinkResource(url:"www.google.com", user:user,topic: topic,description: "aaaaaaa")
@@ -57,7 +57,7 @@ class LinkResourceSpec extends Specification implements DomainUnitTest<LinkResou
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         LinkResource linkResource=new LinkResource(url:"www.google.com", user:user,topic: topic,description: "aaaaaaa")
 
         when:

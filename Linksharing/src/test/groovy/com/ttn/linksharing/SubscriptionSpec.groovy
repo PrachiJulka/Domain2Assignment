@@ -1,7 +1,6 @@
 package com.ttn.linksharing
 
 import grails.testing.gorm.DomainUnitTest
-import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
 class SubscriptionSpec extends Specification implements DomainUnitTest<Subscription> {
@@ -24,7 +23,7 @@ class SubscriptionSpec extends Specification implements DomainUnitTest<Subscript
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic=new Topic(name:"finance",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic=new Topic(name:"finance",visibility: VisibilitySpec.PUBLIC,createdBy: user)
 
         when:
         Subscription subscription=new Subscription(seriousness:Seriousness.CASUAL, user:user,topics:topic)
@@ -56,7 +55,7 @@ class SubscriptionSpec extends Specification implements DomainUnitTest<Subscript
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic=new Topic(name:"finance",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic=new Topic(name:"finance",visibility: VisibilitySpec.PUBLIC,createdBy: user)
 
         when:
         Subscription subscription=new Subscription(seriousness:Seriousness.CASUAL, user:user,topics:topic)
@@ -86,7 +85,7 @@ class SubscriptionSpec extends Specification implements DomainUnitTest<Subscript
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic=new Topic(name:"finance",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic=new Topic(name:"finance",visibility: VisibilitySpec.PUBLIC,createdBy: user)
 
         when:
         Subscription subscription=new Subscription(seriousness:Seriousness.CASUAL, user:user,topics:null)
@@ -106,7 +105,7 @@ class SubscriptionSpec extends Specification implements DomainUnitTest<Subscript
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic=new Topic(name:"finance",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic=new Topic(name:"finance",visibility: VisibilitySpec.PUBLIC,createdBy: user)
 
         when:
         Subscription subscription=new Subscription(seriousness:Seriousness.CASUAL, user:null,topics:null)

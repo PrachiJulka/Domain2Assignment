@@ -5,7 +5,8 @@ import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
 /*
-Add test cases for tostring of Topic and User*/
+//Create a method in visibility enum to convert string into enum and write test case for the same
+*/
 
 class TopicSpec extends Specification implements DomainUnitTest<Topic>{
 
@@ -31,7 +32,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
         topic.createdBy = user
         topic.name = "topic"
 
-        topic.visibility = Visibility.PRIVATE
+        topic.visibility = VisibilitySpec.PRIVATE
       //  topic.save(flush:true)
         user.addToTopics(topic)
         user.save(flush:true)
@@ -39,7 +40,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
         Topic topic1 = new Topic() 
         topic1.name = "topic"
         topic1.createdBy = user
-        topic1.visibility = Visibility.PUBLIC
+        topic1.visibility = VisibilitySpec.PUBLIC
         user.addToTopics(topic1)
         user.validate()
 
@@ -57,7 +58,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
 
         when:
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         user.addToTopics(topic)
         user.save(flush:true)
 
@@ -65,7 +66,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
         Topic.count==1
 
         when:
-        Topic topic1 = new Topic(name: null,createdBy: user,visibility: Visibility.PUBLIC)
+        Topic topic1 = new Topic(name: null,createdBy: user,visibility: VisibilitySpec.PUBLIC)
         user.addToTopics(topic1)
        // user.validate()
         topic1.validate()
@@ -81,7 +82,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
 
 
         when:
-        Topic topic2 = new Topic(name: "",createdBy: user,visibility: Visibility.PUBLIC)
+        Topic topic2 = new Topic(name: "",createdBy: user,visibility: VisibilitySpec.PUBLIC)
         user.addToTopics(topic1)
         // user.validate()
         topic2.validate()
@@ -118,7 +119,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
 
 
         when:
-        Topic topic=new Topic (name:"topic",createdBy: null,visibility: Visibility.PUBLIC)
+        Topic topic=new Topic (name:"topic",createdBy: null,visibility: VisibilitySpec.PUBLIC)
         topic.validate()
         topic.save()
 
@@ -134,7 +135,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
             String email = "prachijulka@tothenew.com"
             String password = 'p1231'
             User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-            Topic topic=new Topic (name:"topic",createdBy: null,visibility: Visibility.PUBLIC)
+            Topic topic=new Topic (name:"topic",createdBy: null,visibility: VisibilitySpec.PUBLIC)
 
         when:
             topic.save()
@@ -148,6 +149,12 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
 
     }
 
+    def "String value should be converted to enum"(){
+        when:
+        Visibility.stringToEnum("PUBLIC")
 
+        then:
+        Visibility visibility= Visibility.PUBLIC
+    }
 
 }

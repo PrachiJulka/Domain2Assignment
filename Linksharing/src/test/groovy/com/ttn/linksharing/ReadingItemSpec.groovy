@@ -27,7 +27,7 @@ class ReadingItemSpec extends Specification implements DomainUnitTest<ReadingIte
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         Resource resource=new LinkResource(url: "www.google.com",description: "abhabhab",user: user,topic: topic)
 
 
@@ -67,7 +67,7 @@ class ReadingItemSpec extends Specification implements DomainUnitTest<ReadingIte
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         Resource resource=new LinkResource(url: "www.google.com",description: "abhabhab",user: user,topic: topic)
 
 
@@ -87,7 +87,7 @@ class ReadingItemSpec extends Specification implements DomainUnitTest<ReadingIte
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email, userName: "prachiJ", password: password, firstName: "Prachi", lastName: "Julka", admin: false, active: true)
-        Topic topic = new Topic(name: "sd", visibility: Visibility.PUBLIC, createdBy: user)
+        Topic topic = new Topic(name: "sd", visibility: VisibilitySpec.PUBLIC, createdBy: user)
         Resource resource = new LinkResource(url: "www.google.com", description: "abhabhab", user: user, topic: topic)
 
 
@@ -108,7 +108,7 @@ class ReadingItemSpec extends Specification implements DomainUnitTest<ReadingIte
             String email = "prachijulka@tothenew.com"
             String password = 'p1231'
             User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-            Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+            Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
             Resource resource=new LinkResource(url: "www.google.com",description: "abhabhab",user: user,topic: topic)
 
 

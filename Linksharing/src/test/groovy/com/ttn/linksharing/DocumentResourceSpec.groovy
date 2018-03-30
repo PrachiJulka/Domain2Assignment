@@ -21,7 +21,7 @@ class DocumentResourceSpec extends Specification implements DomainUnitTest<Docum
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
 
         when:
         DocumentResource documentResource=new DocumentResource(filePath: "prachi/file.txt", user:user,topic: topic,description: "aaaaaaa")
@@ -60,7 +60,7 @@ class DocumentResourceSpec extends Specification implements DomainUnitTest<Docum
         String email = "prachijulka@tothenew.com"
         String password = 'p1231'
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
         DocumentResource documentResource2=new DocumentResource(filePath: "dfvndkjvndknvkdf", user:user,topic: topic,description: "aaaaaaa")
 
         when:
