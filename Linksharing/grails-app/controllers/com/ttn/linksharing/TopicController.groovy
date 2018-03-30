@@ -1,5 +1,5 @@
 package com.ttn.linksharing
-//Use read() for /topic/show and load() for /resource/delete & /topic/delete action.
+//Add topic save action in TopicController
 class TopicController {
 
     def index() { }
