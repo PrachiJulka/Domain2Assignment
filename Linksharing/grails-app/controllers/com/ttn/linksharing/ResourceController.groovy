@@ -1,11 +1,20 @@
 package com.ttn.linksharing
-//Use read() for /topic/show and load() for /resource/delete & /topic/delete action.
+
+import org.hibernate.ObjectNotFoundException
+
+//Exception of object not found should be handled in resource delete.
 class ResourceController {
 
     def index() { }
 
 
     def delete(Integer id){
+
         Resource resource=Resource.load(id)
+        println resource
+    }
+    def handleObjectNotFoundException(ObjectNotFoundException e) {
+
+        render ("no object found")
     }
 }
