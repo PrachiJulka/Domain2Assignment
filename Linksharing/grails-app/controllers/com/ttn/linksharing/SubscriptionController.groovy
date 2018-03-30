@@ -8,7 +8,7 @@ class SubscriptionController {
     def index() { }
 
 
-    def save(Integer id){
+    def save(Long id){
         Topic topic=Topic.read(id)
         Subscription subscription=new Subscription(user: session.user,topics:topic)
         if(subscription.save())
