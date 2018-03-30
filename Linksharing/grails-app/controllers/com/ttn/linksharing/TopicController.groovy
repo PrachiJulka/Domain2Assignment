@@ -12,15 +12,16 @@ class TopicController {
     }
 
     def delete(Integer id){
+        println id
         Topic topic=Topic.load(id)
         println(topic)
         if(topic.delete()) {
             flash.message="sucess"
-            render(action: 'index')
+
         }
         else {
             flash.error="error"
-            render(action: 'index')
+
         }
     }
 

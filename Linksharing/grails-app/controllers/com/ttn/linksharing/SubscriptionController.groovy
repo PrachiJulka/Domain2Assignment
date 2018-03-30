@@ -1,7 +1,8 @@
 package com.ttn.linksharing
 
-//Create save action which takes id as parameter for topic id, user for subscription
-// should be read from the session, if subscription save render success else errors -
+//Create update action which takes an id and serious
+// as a parameter if subscription and seriousness found,
+// then save else render not found, if saved then render success else errors
 class SubscriptionController {
 
     def index() { }
@@ -30,7 +31,16 @@ class SubscriptionController {
 
     }
 
-    def update(){
-
+    def update(Integer id,String serious){
+        Subscription subscription=Subscription.findByIdAndSeriousness(id,Seriousness.valueOf(serious))
+        if(subscription!=null)
+        {
+            if(subscription.save(flush:true))
+            render("success")
+            else
+                render("failure")
+        }
+        else
+            render("not found")
     }
 }
