@@ -12,4 +12,15 @@ class TopicController {
         Topic topic=Topic.load(id)
     }
 
+    def save(Topic topic){
+        if(topic.save()){
+            render("saved Successfully")
+        }
+        else{
+            render("error")
+        }
+
+
+    }
+
 }
