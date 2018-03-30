@@ -1,5 +1,5 @@
 package com.ttn.linksharing
-//Subscription domain should have a default seriousness as Serious.
+//Use eager fetching for topic and user in subscription
 class Subscription {
     Date dateCreated
     Seriousness seriousness
@@ -7,6 +7,8 @@ class Subscription {
 
     static mapping = {
         seriousness defaultValue: Seriousness.SERIOUS
+        topics fetch:'join'
+        user fetch: 'join'
     }
     static constraints = {
         seriousness(nullable:false)

@@ -1,5 +1,5 @@
 package com.ttn.linksharing
-/*Add default sorting: - Topic domain should be default sorted by name asc*/
+/*Use eager fetching for topic and user in subscription*/
 
 class Topic {
 
@@ -16,6 +16,7 @@ class Topic {
     }
     static mapping = {
         sort("name": "asc")
+        subscriptions lazy: false
     }
 
     def afterInsert() {

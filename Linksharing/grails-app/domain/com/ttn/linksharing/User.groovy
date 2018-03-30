@@ -1,8 +1,7 @@
 package com.ttn.linksharing
 //
 /*
-  -User should be default sorted by the id desc so that latest created user comes first
-*/
+Use eager fetching for topic and user in subscription*/
 
 class User {
 
@@ -25,6 +24,7 @@ class User {
     static hasMany = [topics:Topic,subscriptions:Subscription,resources:Resource,resourceRating:ResourceRating,readingItems:ReadingItem]/*,subscriptions:Subscription,resources:Resource*/
     static mapping = {
         sort("id":"desc")
+        subscriptions lazy: false
     }
 
     static constraints = {
