@@ -1,14 +1,19 @@
 package com.ttn.linksharing
 
-//Create subscription delete action which takes id as parameter,
-// if it exist then delete and send success else render not found
-
+//Create save action which takes id as parameter for topic id, user for subscription
+// should be read from the session, if subscription save render success else errors -
 class SubscriptionController {
 
     def index() { }
 
 
-    def save(){
+    def save(Integer id){
+        Topic topic=Topic.read(id)
+        Subscription subscription=new Subscription(user: session.user,topics:topic)
+        if(subscription.save())
+            render("success")
+        else
+            render("error")
 
     }
 
