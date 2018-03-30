@@ -31,7 +31,7 @@ class TopicControllerSpec extends Specification implements ControllerUnitTest<To
         response.contentAsString==session.user.topics
 
     }*/
-    /*  void "topic should be saved on save action"() {
+    /*  def "topic should be saved on save action"() {
           given:
           User user = new User(email: "prachijulka@gmail.com", userName: "PrachiJulka", password: "ROOT@123",
                   firstName: "Prachi", lastName: "Julka", admin: false, active: true, photo: 101)
@@ -49,6 +49,20 @@ class TopicControllerSpec extends Specification implements ControllerUnitTest<To
       }
   */
 
+    def "Delete topic"(){
+       /* given:
+        User user = new User(email: "prachijulka@gmail.com", userName: "PrachiJulka", password: "ROOT@123",
+                firstName: "Prachi", lastName: "Julka", admin: false, active: true, photo: 101)
+        session.user=user
+      */
+        Topic topic=new Topic(name: "topic20",Visibility:Visibility.PUBLIC,createdBy: session.user)
+
+        when:
+        controller.delete(topic.id)
+        then:
+        response.contentAsString=="Successfully Deleted"
+
+    }
     void "test something"() {
         expect:"fix me"
             true == false
