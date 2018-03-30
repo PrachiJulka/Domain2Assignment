@@ -1,10 +1,7 @@
 package com.ttn.linksharing
 //
 /*
-   Write test case for the same Adde validator and transient field
-    for confirmpassword -Confirm password will be nullable true and blank
-     true when user is updating but
-    when its getting created it should match password and it cannot be null
+  -User should be default sorted by the id desc so that latest created user comes first
 */
 
 class User {
@@ -26,7 +23,9 @@ class User {
 
    static transients = ['confirmPassword']
     static hasMany = [topics:Topic,subscriptions:Subscription,resources:Resource,resourceRating:ResourceRating,readingItems:ReadingItem]/*,subscriptions:Subscription,resources:Resource*/
-
+    static mapping = {
+        sort("id": "desc")
+    }
     static constraints = {
         email(unique: true,email: true,blank: false,nullable: false)
         userName(unique: true,blank: false,nullable: false)
