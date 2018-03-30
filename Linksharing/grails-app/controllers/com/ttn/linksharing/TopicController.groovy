@@ -1,4 +1,7 @@
 package com.ttn.linksharing
+
+import org.hibernate.ObjectNotFoundException
+
 //If a topic is not saved errors should be logged flash error should be set and error text should be rendered
 class TopicController {
 
@@ -11,18 +14,12 @@ class TopicController {
         render(user.topics)
     }
 
-    def delete(Integer id){
-        println id
+    def delete(Long id){
         Topic topic=Topic.load(id)
-        println(topic)
-        if(topic.delete()) {
-            flash.message="sucess"
+        topic.delete(flush:true)
+            render("sucess")
 
-        }
-        else {
-            flash.error="error"
 
-        }
     }
 
     def save(Topic topic,String seriousness){
@@ -35,6 +32,10 @@ class TopicController {
         }
 
 
+    }
+    def handleObjectNotFoundException(ObjectNotFoundException e) {
+
+        render ("no object found")
     }
 
 }

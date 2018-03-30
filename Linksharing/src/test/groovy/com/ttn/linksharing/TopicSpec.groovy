@@ -32,7 +32,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
         topic.createdBy = user
         topic.name = "topic"
 
-        topic.visibility = VisibilitySpec.PRIVATE
+        topic.visibility = Visibility.PRIVATE
       //  topic.save(flush:true)
         user.addToTopics(topic)
         user.save(flush:true)
@@ -40,7 +40,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
         Topic topic1 = new Topic() 
         topic1.name = "topic"
         topic1.createdBy = user
-        topic1.visibility = VisibilitySpec.PUBLIC
+        topic1.visibility = Visibility.PUBLIC
         user.addToTopics(topic1)
         user.validate()
 
@@ -58,7 +58,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
         User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
 
         when:
-        Topic topic = new Topic(name:"sd",visibility: VisibilitySpec.PUBLIC,createdBy: user)
+        Topic topic = new Topic(name:"sd",visibility: Visibility.PUBLIC,createdBy: user)
         user.addToTopics(topic)
         user.save(flush:true)
 
@@ -66,7 +66,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
         Topic.count==1
 
         when:
-        Topic topic1 = new Topic(name: null,createdBy: user,visibility: VisibilitySpec.PUBLIC)
+        Topic topic1 = new Topic(name: null,createdBy: user,visibility: Visibility.PUBLIC)
         user.addToTopics(topic1)
        // user.validate()
         topic1.validate()
@@ -82,7 +82,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
 
 
         when:
-        Topic topic2 = new Topic(name: "",createdBy: user,visibility: VisibilitySpec.PUBLIC)
+        Topic topic2 = new Topic(name: "",createdBy: user,visibility: Visibility.PUBLIC)
         user.addToTopics(topic1)
         // user.validate()
         topic2.validate()
@@ -119,7 +119,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
 
 
         when:
-        Topic topic=new Topic (name:"topic",createdBy: null,visibility: VisibilitySpec.PUBLIC)
+        Topic topic=new Topic (name:"topic",createdBy: null,visibility: Visibility.PUBLIC)
         topic.validate()
         topic.save()
 
@@ -135,7 +135,7 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
             String email = "prachijulka@tothenew.com"
             String password = 'p1231'
             User user = new User(email: email,userName:"prachiJ",password:password, firstName: "Prachi", lastName: "Julka",admin:false,active:true)
-            Topic topic=new Topic (name:"topic",createdBy: null,visibility: VisibilitySpec.PUBLIC)
+            Topic topic=new Topic (name:"topic",createdBy: null,visibility: Visibility.PUBLIC)
 
         when:
             topic.save()
@@ -148,13 +148,22 @@ class TopicSpec extends Specification implements DomainUnitTest<Topic>{
 
 
     }
-
     def "String value should be converted to enum"(){
+        given:
+        String PUBLIC="PUBLIC"
         when:
-        Visibility.stringToEnum("PUBLIC")
+        Visibility visibility=Visibility.stringToEnum(PUBLIC)
 
         then:
-        Visibility visibility= Visibility.PUBLIC
+        visibility==Visibility.PUBLIC
+    }
+
+    def "String value should be converted to seriousness Enum"(){
+        when:
+       Seriousness seriousness= Seriousness.stringToEnum("casual")
+
+        then:
+        seriousness==Seriousness.CASUAL
     }
 
 }
