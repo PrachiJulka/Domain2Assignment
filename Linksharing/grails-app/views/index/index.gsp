@@ -15,15 +15,10 @@
 <body>
 
 
-<g:render template="personshow" var="person" collection="${person}">
 
-
-
-</g:render>
 %{--<g:paginate total="5" max=""--}%
 <%-- show super administrative functions --%>
     Hello
-<prachi:firstletterCapital name="prachi"></prachi:firstletterCapital>
 
 
 </body>

@@ -17,6 +17,7 @@ class BootStrap {
         createReadingItems()
         question27()
         createResourceRating()
+       q1()
     }
     void createUsers(){
 
@@ -254,6 +255,11 @@ class BootStrap {
                     }
                 }
         }
+    }
+    void q1(){
+
+        println User.findAll()
+        println Topic.findAll()
     }
 
     def destroy = {

@@ -1,8 +1,6 @@
 package com.ttn.linksharing
 /*
-If topic found is private then check
- the subscription of logged in user exist
- for the topic or not
+Use read() for /topic/show and load() for /resource/delete & /topic/delete action.
 */
 class UserController {
 
